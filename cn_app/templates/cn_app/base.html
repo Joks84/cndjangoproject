@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Going to China?</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/cn_app.css' %}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div>
+      <ul style="padding-left:0px; margin:0px">
+        <nav class="navbar navbar-expand-lg" style="font-family:'Source Code Pro', monospace; background-color:#3A333A; ">
+            <li><a class="navbar-brand" style=" font-family: 'Baloo Bhai', cursive; font-size: 20px; font-weight: bold; padding-left:0px; color: #FCFC62;"  href="{% url 'cn_app:index' %}">Going to China?</a></li>
+            <li><a class="nav-item nav-link" style="font-size: 15px; color: #C9C9C9;" href="{% url 'cn_app:about' %}">About Us</a></li>
+            <li><a class="nav-item nav-link" style="font-size: 15px; color: #C9C9C9;" href="{% url 'cn_app:post_list' %}">Blog</a>
+                <ul style="background-color:#E0FBFC; padding:0; margin:0; border-radius: 10px;">
+                  <li><a class="dropdown-item" style="font-size: 12px; color: #3A333A;" href="{% url 'cn_app:cities' %}">Cities</a></li>
+                  <li><a class="dropdown-item" style="font-size: 12px; color: #3A333A;" href="{% url 'cn_app:history' %}">Historic Spots</a></li>
+                  <li><a class="dropdown-item" style="font-size: 12px; color: #3A333A;" href="{% url 'cn_app:nature' %}">Nature</a></li>
+                  <li><a class="dropdown-item" style="font-size: 12px; color: #3A333A;" href="{% url 'cn_app:provinces' %}">Provinces</a></li>
+                  <li><a class="dropdown-item" style="font-size: 12px; color: #3A333A;" href="{% url 'cn_app:expats' %}">Expats in China</a></li>
+                </ul>
+            </li>
+            <li><a class="nav-item nav-link" style="font-size: 15px; color: #C9C9C9;" href="https://instagram.com">Instagram</a></li>
+
+            {% if user.is_authenticated %}
+            <li><a style="font-size: 15px; color: #C9C9C9;" href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a class="nav-item nav-link" style="font-size: 15px; color: #C9C9C9;" href="{% url 'cn_app:login_user' %}">Login</a></li>
+            <li><a class="nav-item nav-link" style="font-size: 15px; color: #C9C9C9;" href="{% url 'cn_app:signup' %}">SignUp</a></li>
+            {% endif %}
+        </nav>
+      </ul>
+    </div>
+
+
+
+  </body>
+{% block content %}
+{% endblock content %}
+
+</html>

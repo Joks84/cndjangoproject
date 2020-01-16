@@ -1,0 +1,19 @@
+{% extends 'cn_app/base.html '%}
+
+{% block content %}
+
+<div class="jumbotron" style='margin-bottom:0; background-color:#FCFC62'>
+  <h1 style = "font-family: 'Baloo Bhai', cursive;">Nature</h1>
+  <p style = "font-family:'Source Code Pro', monospace">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<div class="jumbotron" style='margin-bottom:0; background-color:#E0FBFC'>
+  {% for post in posts %}
+    <h3 style = "font-family: 'Baloo Bhai', cursive; text-align:center"> <a style = "color:#3A333A" href="{% url 'cn_app:post_detail' post.pk %}">{{post.title}}</a> </h3>
+    <p style = "font-family:'Source Code Pro', monospace; color: #3A333A; text-align:center">{{post.text|slice:":200"}}</p>
+    <p style = "font-family:'Source Code Pro', monospace; color: #EE6C4D; text-align:center">{{post.published_date}}</p>
+    <p style = "font-family:'Source Code Pro', monospace; color:#EE6C4D; font-weight:bold; text-align:center">Category: {{post.category}}</p>
+  {% endfor %}
+</div>
+
+{%endblock content %}

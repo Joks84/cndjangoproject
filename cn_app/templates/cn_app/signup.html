@@ -1,0 +1,14 @@
+{% extends 'cn_app/base.html' %}
+
+{% block content %}
+<div class="jumbotron" style='background-color:#FCFC62; margin-bottom:0'>
+  <h4 style="font-family:'Baloo Bhai', cursive; text-align:center;">SignUp by filling the form:</h4>
+    <div class="jumbotron" style='background-color:#E0FBFC; border-radius:50px'>
+        <form method="post" style = "font-family:'Source Code Pro', monospace; ">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" style="font-family: 'Baloo Bhai', cursive; border-radius: 10px; background-color:#EE6C4D; color: #3A333A; border:none; font-size:20px; padding:10px 40px; margin-bottom:5px;">SignUp</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

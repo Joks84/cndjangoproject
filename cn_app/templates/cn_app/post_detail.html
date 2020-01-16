@@ -1,0 +1,29 @@
+{% extends 'cn_app/base.html' %}
+
+{% block content %}
+<div class="jumbotron" style = "margin-bottom:0; background-color:#FCFC62">
+  <h3 style = "font-family: 'Baloo Bhai', cursive; color:#3A333A; text-align:center">{{post.title}}</h3>
+  <p style = "font-family:'Source Code Pro', monospace; color:#EE6C4D; font-weight:bold; text-align:center">{{post.author}}|{{post.published_date}}</p>
+</div>
+
+<div class="jumbotron" style="margin-bottom:0; background-color:#E0FBFC">
+  <p style="font-family:'Source Code Pro',monospace;color:#3A333A">{{post.text}}</p>
+</div>
+
+<div class="jumbotron" style = 'margin-top:0; background-color:#E0FBFC'>
+  {% if user.is_authenticated %}
+    <p style="font-family: 'Baloo Bhai', cursive; color:#3A333A">Number of comments: {{post.comments.count}}</p>
+      {% for comment in post.comments.all %}
+        <p style="font-family: 'Baloo Bhai', cursive; color:#EE6C4D">{{comment.author}}</p>
+        <p style = "font-family:'Source Code Pro', monospace">{{comment.text}}</p>
+        <p style="font-family: 'Source Code Pro', monospace; color:#EE6C4D;">{{comment.created_on}}</p>
+      {% endfor %}
+    <p style="font-family: 'Baloo Bhai', cursive;"><a style = "color:#3A333A" href="{% url 'cn_app:comment' pk=post.pk %}">Leave a comment</a></p>
+{% endif %}
+</div>
+
+
+
+
+
+{% endblock content %}

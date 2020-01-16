@@ -1,0 +1,44 @@
+{% extends 'cn_app\base.html'%}
+
+
+{% block content %}
+{% if messages %}
+<ul class="messages alert alert-success" role="alert">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="jumbotron" style="margin:0px; background-color:#E0FBFC;">
+  {% if user.is_authenticated%}
+    <p style="font-family: 'Baloo Bhai', cursive;">You are logged in as {{user.username}}</p>
+  {% endif %}
+
+  <h3 style="font-family: 'Baloo Bhai', cursive; color: #3A333A">So, you want to visit China</h3>
+  <h4 style="font-family: 'Baloo Bhai', cursive; color: #3A333A">Here you can find a lot of tips and tricks on how to make the staying in China beautiful.</h4>
+  <p style="font-family:'Source Code Pro', monospace; color: #3A333A">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGpi0egDbla-p1Ake6xw7aVojk5il8Bk1oaXicvqvTnPUKwjvutA&s" alt="" style="width:33%; height:300%; padding:0%;">
+<img src="https://wallpaperaccess.com/full/973311.jpg" alt="" style="width:33%; height:5%; padding:0%;">
+<img src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fcom.ft.imagepublish.upp-prod-us.s3.amazonaws.com%2Ffe3180a8-9693-11e9-98b9-e38c177b152f?fit=scale-down&source=next&width=700" alt="" style="width:33%; height:5%; padding:0%;">
+
+<div class="jumbotron" style="margin-bottom:0%; background-color:#E0FBFC;">
+  <p style="font-family:'Source Code Pro', monospace; color: #3A333A">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p style="font-family:'Source Code Pro', monospace; color: #3A333A">Check our blog!</p>
+</div>
+
+<div class="" style='text-align:center; margin-bottom:5px;'>
+
+  <h3 style="font-family: 'Baloo Bhai', cursive; background-color:#3A333A; margin:0; color: #FCFC62;">Subscribe for Newsletter</h3>
+  <form action="{% url 'cn_app:subscribe' %}" method="post" style="background-color:#3A333A; margin:0; ">
+    {% csrf_token %}
+      {{form.as_p}}
+    <button type="submit" style="font-family: 'Baloo Bhai', cursive; border-radius: 10px; background-color:#EE6C4D; color: #3A333A; border:none; font-size:20px; padding:10px 40px; margin-bottom:5px;">Subscribe</button>
+  </form>
+</div>
+
+
+
+{% endblock content %}

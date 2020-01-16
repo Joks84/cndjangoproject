@@ -1,0 +1,14 @@
+{% extends 'cn_app/base.html' %}
+
+{% block content %}
+<div class="jumbotron" style="background-color:#E0FBFC;">
+  <h1 style="font-family: 'Baloo Bhai', cursive; color: #3A333A;">Login here:</h1>
+  <form method="post" style="font-family:'Source Code Pro', monospace; color: #3A333A; ">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" style="font-family: 'Baloo Bhai', cursive; border-radius: 10px; background-color:#EE6C4D; color: #3A333A; border:none; font-size:20px; padding:10px 40px; margin-bottom:5px;">Login</button>
+  </form>
+  <p style="font-family:'Source Code Pro', monospace; color: #3A333A; margin-bottom:15%;">If you dont have the account, please go to <a href="{% url 'cn_app:signup' %}">sign up page</a> </p>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'cn_app/base.html' %}
+
+{% block content %}
+
+<div class="jumbotron" style="background-color:#E0FBFC;">
+  <h3 style = "font-family: 'Baloo Bhai', cursive; color:#3A333A; ">Add new comment:</h3>
+  <form method="post" style = "font-family: 'Baloo Bhai', cursive; color:#3A333A;" >
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" style="font-family: 'Baloo Bhai', cursive; border-radius: 10px; background-color:#EE6C4D; color: #3A333A; border:none; font-size:20px; padding:10px 40px; margin-bottom:5px;">Submit</button>
+  </form>
+  <p style = "font-family:'Source Code Pro',monospace;color:#3A333A">*Your comment will be to be reviewed.</p>
+</div>
+
+{% endblock content %}
