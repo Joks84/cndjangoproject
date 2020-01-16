@@ -22,15 +22,15 @@ TEMPLATE_DIR = os.path.join('BASE_DIR', 'templates')
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k&wf=_-2&@1gen#i)ni=n*_eluq4gxdf*(!52jha2in!rokkbk'
-
+#SECRET_KEY = 'k&wf=_-2&@1gen#i)ni=n*_eluq4gxdf*(!52jha2in!rokkbk'
+SECRET_KEY = os.environ.get('secret_key')
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
 DEBUG = True
 
 #changed-it was empty
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cndjangoproject.herokuapp.com']
 
 
 # Application definition
@@ -143,9 +143,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL = '/'
 
 
-MAILCHIMP_API_KEY = 'd434ff929e829c3e779241ef4aacb2d2-us4'
+MAILCHIMP_API_KEY = os.environ.get('api_key')
 MAILCHIMP_DATA_CENTER = 'us4'
-MAILCHIMP_EMAIL_LIST_ID = '73745b5b1c'
+MAILCHIMP_EMAIL_LIST_ID = os.environ.get('list_id')
 
 
 #Heroku settings
