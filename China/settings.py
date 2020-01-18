@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('secret_key')
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-DEBUG = True
+DEBUG = (os.environ.get('debug_value') == 'True')
 
 #changed-it was empty
 ALLOWED_HOSTS = ['cndjangoproject.herokuapp.com']
