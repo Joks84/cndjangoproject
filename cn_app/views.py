@@ -19,7 +19,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     template_name = 'cn_app/index.html'
     form = EmailSignUpForm()
-    return render(request, template_name, {'form':form})
+    return render(request, 'cn_app/index.html', {'form':form})
 
 class AboutView(generic.TemplateView):
     template_name = 'cn_app/about.html'
