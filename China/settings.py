@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -148,4 +149,4 @@ MAILCHIMP_DATA_CENTER = 'us4'
 MAILCHIMP_EMAIL_LIST_ID = os.environ.get('list_id')
 
 
-#Heroku settings
+django_heroku.settings(locals())
